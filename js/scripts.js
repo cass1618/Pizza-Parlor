@@ -55,12 +55,16 @@ function logPrice() {
 
 let pizza = new Pizza("small");
 
-function update() {
-  if (":checkbox:checked") {
-    pizza.addTopping("#toppings.val()");
-  }
+function update(value, id) {
+    if ($(('#')+id).is(':checked')) {
+      pizza.addTopping(value);
+     } 
+     else {
+       pizza.removeTopping(value);
+     }
   pizza.calculatePrice();
-  console.log(pizza);
+  console.log(pizza.toppings);
+//})
 }
 
 $(document).ready(function() {
