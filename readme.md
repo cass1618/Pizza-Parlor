@@ -22,6 +22,14 @@ To download project and run locally:
 1. Open the Pizza-parlor folder
 1. Open "index.html" using your web browser
 
+## TESTING
+
+Describe: Pizza.prototype.addTopping(topping)
+Test: When the addTopping method is called on a specific pizza object, the argument should be pushed to the toppings array for that pizza.
+Code: let pizza1 = new Pizza();
+      pizza1.addTopping("chick'n");
+Expected Output: Pizza { toppings: [ 'cheese' ], size: '', price: 0 }
+
 ## Known bugs
 
 No known bugs.
@@ -35,10 +43,3 @@ Copywrite (c) Cassandra Copp 2021.
 ## Contact Information
 
 [github.com/cass1618](http://github.com/cass1618)
-
-## TESTING
-
-Describe: 
-Test: 
-Code: 
-Expected Output: 
