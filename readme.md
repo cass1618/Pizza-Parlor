@@ -30,6 +30,13 @@ Code: let pizza1 = new Pizza();
       pizza1.addTopping("chick'n");
 Expected Output: Pizza { toppings: [ 'cheese' ], size: '', price: 0 }
 
+Describe: Pizza.prototype.calculatePrice()
+Test: When the calculatePrice method is called on a pizza object, the price attribute of that pizza should be set according to size and number of toppings.
+Code: pizza1 = Pizza { toppings: [ 'cheese' ], size: 'small', price: 0 }
+      pizza1.calculatePrice();
+Expected Output: pizza1 = Pizza { toppings: [ 'cheese' ], size: 'small', price: 12.25 }
+
+
 ## Known bugs
 
 No known bugs.
