@@ -36,4 +36,19 @@ Pizza.prototype.calculatePrice = function() {
 // fields for Name, address, phone number
 
 // checkboxes for toppings
+$(document).ready(function() {
+  $("form").submit(function(event) {
+  event.preventDefault();
+
+  const size = $("#size").val();
+  console.log(size);
+
+  let toppings = [];
+  $(":checkbox:checked").each(function(i) {
+    toppings[i] = $(this).val();
+  });
+  console.log("toppings: "+toppings);
+
+  });
+});
 // Dropdown for size
