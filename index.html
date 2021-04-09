@@ -13,10 +13,10 @@
 <body>
   <h1>Cass' & James' Vegan Pizza</h1>
 
-  <form>
+  <form id="formA">
     <div class="size">
       <h5>What size of pizza would you like?</h5>
-      <select id="size" onchange = logPrice()>
+      <select id="size" onchange = modifySize()>
         <option value="small">SMALL $11.50</option>
         <option value="medium">MEDIUM $14.00</option>
         <option value="large">LARGE $16.50</option>
@@ -37,7 +37,7 @@
         <label><input type="checkbox" class="checkbox" value="onions" id="check9" onchange="update(value, id)">Grilled Onions</label>
     </div>
 
-    <button type="submit" class="btn">SUBMIT</button>
+    <button type="submit" class="btn">ADD TO CART</button>
   </form>
 </body>
 </html>

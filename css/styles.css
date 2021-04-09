@@ -1,0 +1,10 @@
+label {
+  display: block;
+  border: solid 3px;
+  height: 20vh;
+  width: 20vh;
+}
+
+input {
+  display: none;
+}

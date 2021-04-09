@@ -49,6 +49,13 @@ Code: pizza = Pizza { toppings: [ 'cheese' ], size: 'small', price: 0 }
       pizza1.calculatePrice();
 Expected Output: pizza = Pizza { toppings: [ 'cheese' ], size: 'small', price: 12.25 }
 
+Describe: Cart.prototype.addItem()
+Test: When the addItem method is called on a cart object, the object should be added to the cart.
+Code: cart = Cart { items: {}, currentId: 0 }
+      pizza = Pizza { toppings: [], size: 'small', price: 0 }
+      cart.addItem(pizza);
+Expected Output: cart = Cart { items: { '1': Pizza { toppings: [], size: 'small', price: 0, id: 1 } }, currentId: 1 }
+
 
 ## Known bugs
 
