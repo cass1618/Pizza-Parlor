@@ -26,15 +26,28 @@ To download project and run locally:
 
 Describe: Pizza.prototype.addTopping(topping)
 Test: When the addTopping method is called on a specific pizza object, the argument should be pushed to the toppings array for that pizza.
-Code: let pizza1 = new Pizza();
-      pizza1.addTopping("chick'n");
+Code: let pizza = new Pizza();
+      pizza.addTopping("chick'n");
 Expected Output: Pizza { toppings: [ 'cheese' ], size: '', price: 0 }
+
+Describe: Pizza.prototype.removeTopping(topping)
+Test: When the removeTopping method is called on a specific pizza object, the argument should be removed from that pizza's toppings array.
+Code: pizza = Pizza { toppings: [ 'cheese' , 'pepperoni' ], size: 'small', price: 0 }
+      pizza.removeTopping('cheese');
+Expected Output: pizza = Pizza { toppings: [ 'peperoni' ], size: 'small', price: 0 }
+
+Test: When the removeTopping method is called with an argument that is not included in the pizza's topping array, the function should return false and the pizza object should remain unchanged.
+Code: pizza = Pizza { toppings: [ 'pepperoni' ], size: 'small', price: 0 }
+      pizza.removeTopping('cheese');
+Expected Output: false
+                 pizza = Pizza { toppings: [ 'peperoni' ], size: 'small', price: 0 }
+
 
 Describe: Pizza.prototype.calculatePrice()
 Test: When the calculatePrice method is called on a pizza object, the price attribute of that pizza should be set according to size and number of toppings.
-Code: pizza1 = Pizza { toppings: [ 'cheese' ], size: 'small', price: 0 }
+Code: pizza = Pizza { toppings: [ 'cheese' ], size: 'small', price: 0 }
       pizza1.calculatePrice();
-Expected Output: pizza1 = Pizza { toppings: [ 'cheese' ], size: 'small', price: 12.25 }
+Expected Output: pizza = Pizza { toppings: [ 'cheese' ], size: 'small', price: 12.25 }
 
 
 ## Known bugs

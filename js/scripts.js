@@ -13,6 +13,12 @@ function sizeToPrice(size) {
 }
 
 //BUSINESS LOGIC
+function Pizza (size, toppings) {
+  this.toppings = toppings;
+  this.size = size;
+  this.price = 0;
+}
+
 function Pizza (size) {
   this.toppings = [];
   this.size = size;
@@ -21,6 +27,14 @@ function Pizza (size) {
 
 Pizza.prototype.addTopping = function(topping) {
   this.toppings.push(topping);
+}
+
+Pizza.prototype.removeTopping = function(topping) {
+  if (this.toppings.indexOf(topping) >= 0) {
+    this.toppings.splice((this.toppings.indexOf(topping)),1);
+  } else {
+    return false;
+  }
 }
 
 Pizza.prototype.calculatePrice = function() {
@@ -35,20 +49,53 @@ Pizza.prototype.calculatePrice = function() {
 
 // fields for Name, address, phone number
 
-// checkboxes for toppings
+function logPrice() {
+  console.log($("#size").val());
+}
+
+let pizza = new Pizza("small");
+
+function update() {
+  if (":checkbox:checked") {
+    pizza.addTopping("#toppings.val()");
+  }
+  pizza.calculatePrice();
+  console.log(pizza);
+}
+
 $(document).ready(function() {
-  $("form").submit(function(event) {
-  event.preventDefault();
 
-  const size = $("#size").val();
-  console.log(size);
-
-  let toppings = [];
-  $(":checkbox:checked").each(function(i) {
+  
+  
+    $(":checkbox:checked").each(function(i) {
     toppings[i] = $(this).val();
+    console.log("check box");
   });
-  console.log("toppings: "+toppings);
 
-  });
+  $(".checkboxes").bind("click", pizza.addTopping($(this).val()), pizza.calculatePrice());
+
+  
+
+
+
+  // $("form").submit(function(event) {
+  // event.preventDefault();
+
+    
+  // const size = $("#size").val();
+  // console.log(size);
+
+  // let toppings = [];
+  // $(":checkbox:checked").each(function(i) {
+  //   toppings[i] = $(this).val();
+  //   console.log("check box");
+  // });
+  // console.log("toppings: "+toppings);
+
+  // let pizza = new Pizza(size, toppings);
+  // pizza.calculatePrice();
+  // console.log("pizza!" ,pizza)
+
+
+  // });
 });
-// Dropdown for size

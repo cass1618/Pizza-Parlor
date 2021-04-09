@@ -16,7 +16,7 @@
   <form>
     <div class="size">
       <h5>What size of pizza would you like?</h5>
-      <select name="Size" id="size">
+      <select id="size" onchange = logPrice()>
         <option value="small">SMALL $11.50</option>
         <option value="medium">MEDIUM $14.00</option>
         <option value="large">LARGE $16.50</option>
@@ -25,7 +25,7 @@
 
     <div class="toppings">
       <h5>Which toppings would you like?</h5>
-        <label><input type="checkbox" value="pepperoni">Yves Pepperoni</label>
+        <label><input type="checkbox" value="pepperoni" onchange="update()">Yves Pepperoni</label>
         <label><input type="checkbox" value="crumbles">Beyond Italian Sauasage Crumbles</label>
         <label><input type="checkbox" value="sliced">Field Roast Sliced Italian Sausage</label>
         <label><input type="checkbox" value="chickn">Housemade Fried Chick'n</label>
