@@ -12,32 +12,33 @@
 </head>
 <body>
   <h1>Cass' & James' Vegan Pizza</h1>
-
-  <form id="formA">
+  <form>
     <div class="size">
       <h5>What size of pizza would you like?</h5>
       <select id="size" onchange = modifySize()>
-        <option value="small">SMALL $11.50</option>
-        <option value="medium">MEDIUM $14.00</option>
-        <option value="large">LARGE $16.50</option>
+        <option value="SMALL">SMALL $11.50</option>
+        <option value="MEDIUM">MEDIUM - 15"  $14.00</option>
+        <option value="LARGE">LARGE = 18" $16.50</option>
       </select>
     </div>
-
+    <div class="total"></div>
+    <h5>Which toppings would you like?</h5>
     <div class="toppings">
-      <h5>Which toppings would you like?</h5>
-        <label><input type="checkbox" class="checkbox" value="pepperoni" id="check1" onchange="update(value, id)">Yves Pepperoni</label>
-        <label><input type="checkbox" class="checkbox" value="crumbles" id="check2" onchange="update(value, id)">Beyond Italian Sauasage Crumbles</label>
-        <label><input type="checkbox" class="checkbox" value="sliced" id="check3" onchange="update(value, id)">Field Roast Sliced Italian Sausage</label>
-
-        <label><input type="checkbox" class="checkbox" value="chickn" id="check4" onchange="update(value, id)">Housemade Fried Chick'n</label>
-        <label><input type="checkbox" class="checkbox" value="jalepenos" id="check5" onchange="update(value, id)">Fresh Jalepeños</label>
-        <label><input type="checkbox" class="checkbox" value="pineapple" id="check6" onchange="update(value, id)">Fresh Pineapple</label>
-        <label><input type="checkbox" class="checkbox" value="olives" id="check7" onchange="update(value, id)">Black olives</label>
-        <label><input type="checkbox" class="checkbox" value="red peppers" id="check8" onchange="update(value, id)">Fire Roasted Red Peppers</label>
-        <label><input type="checkbox" class="checkbox" value="onions" id="check9" onchange="update(value, id)">Grilled Onions</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Pepperoni" id="check1" onchange="update(value, id)">Yves Pepperoni</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Beyond Crumbles" id="check2" onchange="update(value, id)">Beyond Italian Sauasage Crumbles</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Sliced Italian Sausage" id="check3" onchange="update(value, id)">Field Roast Sliced Italian Sausage</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Fried Chick'n" id="check4" onchange="update(value, id)">Housemade Fried Chick'n</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Fresh Jalepeños" id="check5" onchange="update(value, id)">Fresh Jalepeños</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Fresh Pineapple" id="check6" onchange="update(value, id)">Fresh Pineapple</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Black Olives" id="check7" onchange="update(value, id)">Black olives</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Roasted Red Peppers" id="check8" onchange="update(value, id)">Fire Roasted Red Peppers</label>
+        <label class="btn"><input type="checkbox" class="checkbox" value="Grilled Onions" id="check9" onchange="update(value, id)">Grilled Onions</label>
     </div>
-
     <button type="submit" class="btn">ADD TO CART</button>
   </form>
+  <div class="cart" id="1"></div>
+  <div class="cart" id="2"></div>
+  <div class="cart" id="3"></div>
+  <div class="cart"></div>
 </body>
 </html>

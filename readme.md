@@ -15,8 +15,6 @@ This website allows a user to select what toppings and size of pizza they would 
 
 ## Setup Instructions
 
-[Click here to access live web page](https://cass1618.github.io/Pizza-Parlor/)
-
 To download project and run locally:
 1. Clone the repository from GitHub
 1. Open the Pizza-parlor folder
@@ -56,6 +54,16 @@ Code: cart = Cart { items: {}, currentId: 0 }
       cart.addItem(pizza);
 Expected Output: cart = Cart { items: { '1': Pizza { toppings: [], size: 'small', price: 0, id: 1 } }, currentId: 1 }
 
+Describe: function sizeToPrice(size)
+Test: When this function is called on a size string, the price of that size should be returned.
+Code: sizeToPrice("small")
+Expected Output: 11.50
+
+Describe: Cart.prototype.getById(id) 
+Test: When this function is called on a cart with id argument, the item with that id should be returned.
+Code: cart = Cart { items: { '1': Pizza { toppings: [], size: 'small', price: '$11.50', id: 1 } }
+cart.getById(1)
+Expected Output: Pizza { toppings: [], size: 'small', price: '$11.50', id: 1 }
 
 ## Known bugs
 
