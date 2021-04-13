@@ -51,23 +51,6 @@ Pizza.prototype.displayToppings = function() {
   return toppingList;
 }
 
-Cart.prototype.displayPizza = function(id) {
-  let currentPizza = this.getById(id);
-  currentPizza.size
-  currentPizza.displayToppings();
-  currentPizza.price;
-}
-
-function displayContactDetails(addressBookToDisplay) {
-  let contactsList = $("ul#contacts");
-  let htmlForContactInfo = "";
-  Object.keys(addressBookToDisplay.contacts).forEach(function(key) {
-    const contact = addressBookToDisplay.findContact(key);
-    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
-  });
-  contactsList.html(htmlForContactInfo);
-};
-
 function Cart () {
   this.items = {};
   this.currentId = 0;
@@ -97,6 +80,7 @@ Cart.prototype.getById = function(id) {
 //UI LOGIC
 let pizza = new Pizza();
 let cart = new Cart();
+let i = 0;
 
 function modifySize() {
   pizza.size = ($("#size").val());
@@ -117,17 +101,27 @@ function update(value, id) {
 
 $(document).ready(function() {
   $(".total").html(`COST: ${pizza.price}`);  
+
   $("form").submit(function(event) {
     event.preventDefault();
-    cart.addItem(pizza);
 
+    cart.addItem(pizza);
     let numItems = cart.numItems;
-    for (i=1; i <= numItems; i++) {
-      let id = i;
-      let currentPizza = cart.getById(i);
-      $(".cart#"+i).html(`${currentPizza.size}<br>
-      Toppings: ${currentPizza.displayToppings()}<br>
-      ${currentPizza.price}`) 
+    let currentDiv = "item1";
+
+    for (let i=2; i <= numItems+1; i++) {
+      currentDiv = "item"+i;
+    }
+   
+    $(".cartItems").append("<div id="+currentDiv+">"+currentDiv+"</div>");
+    $("#"+currentDiv).html(`${pizza.size}<br>
+    Toppings: ${pizza.displayToppings()}
+    ${pizza.price}`);
+
+    $("#size").val("SMALL");
+
+    for (let j = 1; j <= 9; j++) {
+    $("#check"+j).prop("checked", false);
     }
   });
 });

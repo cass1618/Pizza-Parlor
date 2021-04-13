@@ -4,7 +4,7 @@
 
 ## Description
 
-This website allows a user to select what toppings and size of pizza they would like.  It also calculates the prices based on selections.
+This website allows a user to select which toppings and size of pizza they would like.  It then calculates the price based on selections and adds to cart when submit button is clicked.
 
 ## Technologies Used
 

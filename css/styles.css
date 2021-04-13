@@ -3,8 +3,11 @@ label.btn {
   border: solid 3px;
   height: 20vh;
   width: 20vh;
-  margin: 5px;
+  margin: 2vh;
   background-color: coral;
+  border: 1px solid whitesmoke;
+  box-shadow: 0 0 3px 0 black;
+  border-radius: 15px;
 }
 
 .toppings {
@@ -13,4 +16,16 @@ label.btn {
   flex-wrap: wrap;
   justify-content:left;
   margin: 5px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.toppings input[type=checkbox]:checked + label.btn {
+  border: 2px solid black;
+}
+
+.cartItems {
+  border: 2px solid black;
 }
