@@ -1,10 +1,22 @@
+div {
+  margin: 3vh;
+}
+
+div.cartItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:left;
+  margin: 5px;
+}
+
 label.btn {
   display: block;
   border: solid 3px;
-  height: 20vh;
-  width: 20vh;
+  height: 25vh;
+  width: 25vh;
   margin: 2vh;
-  background-color: coral;
+  background-color: peru;
   border: 1px solid whitesmoke;
   box-shadow: 0 0 3px 0 black;
   border-radius: 15px;
@@ -28,4 +40,9 @@ input[type=checkbox] {
 
 .cartItems {
   border: 2px solid black;
+}
+
+h3 {
+  width: 100%;
+  margin: auto;
 }

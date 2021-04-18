@@ -22,16 +22,18 @@ const currency = new Intl.NumberFormat('en-US', {
 function Pizza () {
   this.toppings = [];
   this.size = "SMALL";
-  this.price =  currency.format(11.50);
+  this.price = 11.50;
 }
 
 Pizza.prototype.addTopping = function(topping) {
   this.toppings.push(topping);
+  this.calculatePrice();
 }
 
 Pizza.prototype.removeTopping = function(topping) {
   if (this.toppings.indexOf(topping) >= 0) {
     this.toppings.splice((this.toppings.indexOf(topping)),1);
+    this.calculatePrice();
   } else {
     return false;
   }
@@ -68,57 +70,42 @@ Cart.prototype.assignId = function() {
   return this.currentId;
 }
 
-Cart.prototype.getById = function(id) {
-  if (this.items[id] != undefined) {
-    return this.items[id];
-  }
-  else {
-    return false;
-  }
-}
-
-//UI LOGIC
-let pizza = new Pizza();
-let cart = new Cart();
-let i = 0;
-
-function modifySize() {
-  pizza.size = ($("#size").val());
-  pizza.calculatePrice();
-  $(".total").html(`COST: ${currency.format(pizza.price)}`); 
-}
-
-function update(value, id) {
-  if ($(('#')+id).is(':checked')) {
-    pizza.addTopping(value);
-  } 
-  else {
-    pizza.removeTopping(value);
-  }
-  pizza.calculatePrice();
-  console.log(pizza);
-  $(".total").html(`COST: ${currency.format(pizza.price)}`);
-}
-
 $(document).ready(function() {
-  $(".total").html(`COST: ${pizza.price}`);  
+  let pizza = new Pizza();
+  let cart = new Cart();
+  $(".total").html(`COST: ${currency.format(pizza.price)}`);
+
+  $("#size").change( function() {
+    pizza.size = ($("#size").val());
+    pizza.calculatePrice();
+    $(".total").html(`COST: ${currency.format(pizza.price)}`); 
+  });
+
+  $(".checkbox").change(function() {
+    if (($(this)).is(':checked')) {
+    pizza.addTopping($(this).val());
+    } else {
+      pizza.removeTopping($(this).val());
+    }
+    $(".total").html(`COST: ${currency.format(pizza.price)}`);
+  });
 
   $("form").submit(function(event) {
     event.preventDefault();
 
     cart.addItem(pizza);
-    console.log(pizza);
+
     let numItems = cart.numItems;
     let currentDiv = "item1";
 
     for (let i=2; i <= numItems+1; i++) {
       currentDiv = "item"+i;
     }
-   
+
     $(".cartItems").append("<div id="+currentDiv+">"+currentDiv+"</div>");
     $("#"+currentDiv).html(`${pizza.size}<br>
-    Toppings: ${pizza.displayToppings()}
-    ${pizza.price}`);
+    Toppings: ${pizza.displayToppings()}<br>
+    ${currency.format(pizza.price)}`);
 
     $("#size").val("SMALL");
 
@@ -126,5 +113,6 @@ $(document).ready(function() {
     $("#check"+j).prop("checked", false);
     }
     pizza = new Pizza();
+    $(".total").html(`COST: ${currency.format(pizza.price)}`);
   });
 });
