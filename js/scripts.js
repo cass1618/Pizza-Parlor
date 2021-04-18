@@ -89,13 +89,14 @@ function modifySize() {
 }
 
 function update(value, id) {
-    if ($(('#')+id).is(':checked')) {
-      pizza.addTopping(value);
-     } 
-     else {
-       pizza.removeTopping(value);
-     }
+  if ($(('#')+id).is(':checked')) {
+    pizza.addTopping(value);
+  } 
+  else {
+    pizza.removeTopping(value);
+  }
   pizza.calculatePrice();
+  console.log(pizza);
   $(".total").html(`COST: ${currency.format(pizza.price)}`);
 }
 
@@ -106,6 +107,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     cart.addItem(pizza);
+    console.log(pizza);
     let numItems = cart.numItems;
     let currentDiv = "item1";
 
@@ -123,5 +125,6 @@ $(document).ready(function() {
     for (let j = 1; j <= 9; j++) {
     $("#check"+j).prop("checked", false);
     }
+    pizza = new Pizza();
   });
 });
