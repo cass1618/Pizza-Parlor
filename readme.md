@@ -20,7 +20,7 @@ To download project and run locally:
  
 ## Testing
 
-### Describe: `Pizza.prototype.addTopping(topping)`
+Describe: `Pizza.prototype.addTopping(topping)`
 
 Test: When the addTopping method is called on a specific pizza object, the argument should be pushed to the toppings array for that pizza.
 
@@ -33,7 +33,7 @@ Expected Output:
 ```js
 Pizza { toppings: [ 'cheese' ], size: '', price: 0 };
 ```
-### Describe: `Pizza.prototype.removeTopping(topping)`
+Describe: `Pizza.prototype.removeTopping(topping)`
 
 Test: When the removeTopping method is called on a specific pizza object, the argument should be removed from that pizza's toppings array.
 
@@ -61,7 +61,7 @@ false;
 pizza = Pizza { toppings: [ 'peperoni' ], size: 'small', price: 0 };
 ```
 
-### Describe: `Pizza.prototype.calculatePrice()`
+Describe: `Pizza.prototype.calculatePrice()`
 
 Test: When the calculatePrice method is called on a pizza object, the price attribute of that pizza should be set according to size and number of toppings.
 
@@ -75,7 +75,7 @@ Expected Output:
 pizza = Pizza { toppings: [ 'cheese' ], size: 'small', price: 12.25 };
 ```
 
-### Describe: `Cart.prototype.addItem()`
+Describe: `Cart.prototype.addItem()`
 
 Test: When the addItem method is called on a cart object, the object should be added to the cart.
 
@@ -90,7 +90,7 @@ Expected Output:
 ```js
 cart = Cart { items: { '1': Pizza { toppings: [], size: 'small', price: 0, id: 1 } }, currentId: 1 };
 ```
-### Describe: `function sizeToPrice(size)`
+Describe: `function sizeToPrice(size)`
 
 Test: When this function is called on a size string, the price of that size should be returned.
 
@@ -101,7 +101,7 @@ sizeToPrice("small");
 
 Expected Output: `11.50`
 
-### Describe: `Cart.prototype.getById(id)`
+Describe: `Cart.prototype.getById(id)`
 
 Test: When this function is called on a cart with id argument, the item with that id should be returned.
 
