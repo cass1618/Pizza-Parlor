@@ -12,11 +12,14 @@ function sizeToPrice(size) {
   }
 }
 
-const currency = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 2,
-});
+function formatCurrency(number) {
+  let currency = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+  });
+  return currency.format(number);
+}
 
 //BUSINESS LOGIC
 function Pizza () {
@@ -73,12 +76,12 @@ Cart.prototype.assignId = function() {
 $(document).ready(function() {
   let pizza = new Pizza();
   let cart = new Cart();
-  $(".total").html(`COST: ${currency.format(pizza.price)}`);
+  $(".total").html(`COST: ${formatCurrency(pizza.price)}`);
 
   $("#size").change( function() {
     pizza.size = ($("#size").val());
     pizza.calculatePrice();
-    $(".total").html(`COST: ${currency.format(pizza.price)}`); 
+    $(".total").html(`COST: ${formatCurrency(pizza.price)}`); 
   });
 
   $(".checkbox").change(function() {
@@ -87,7 +90,7 @@ $(document).ready(function() {
     } else {
       pizza.removeTopping($(this).val());
     }
-    $(".total").html(`COST: ${currency.format(pizza.price)}`);
+    $(".total").html(`COST: ${formatCurrency(pizza.price)}`);
   });
 
   $("form").submit(function(event) {
@@ -105,7 +108,7 @@ $(document).ready(function() {
     $(".cartItems").append("<div id="+currentDiv+">"+currentDiv+"</div>");
     $("#"+currentDiv).html(`${pizza.size}<br>
     Toppings: ${pizza.displayToppings()}<br>
-    ${currency.format(pizza.price)}`);
+    ${formatCurrency(pizza.price)}`);
 
     $("#size").val("SMALL");
 
@@ -113,6 +116,6 @@ $(document).ready(function() {
     $("#check"+j).prop("checked", false);
     }
     pizza = new Pizza();
-    $(".total").html(`COST: ${currency.format(pizza.price)}`);
+    $(".total").html(`COST: ${formatCurrency(pizza.price)}`);
   });
 });
